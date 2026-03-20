@@ -1518,6 +1518,14 @@ h1, h2, h3, h4, h5, h6 {
     .about-desc-sm { max-width: 600px; margin: 20px auto 0; }
     .about-stats { justify-content: center; }
     .about-visual { margin-top: 20px !important; }
+    .about-actions { display: flex; justify-content: center; }
+
+    /* Section Headers */
+    .section-header { text-align: center; margin: 0 auto 50px; }
+
+    /* Skill Cards Alignment */
+    .skill-card { text-align: center; align-items: center; }
+    .skill-header { flex-direction: column; gap: 15px; margin-bottom: 20px; }
 
     /* Project Layout */
     .project-item, .project-item.reverse { grid-template-columns: 1fr; gap: 30px; }
@@ -1542,7 +1550,10 @@ h1, h2, h3, h4, h5, h6 {
     .container { padding: 0 7%; }
     .section-padding { padding: 70px 0; }
     
-    .hero-title-massive { font-size: clamp(2.8rem, 13vw, 5rem); margin: 0; }
+    .hero-title-massive { font-size: clamp(2.8rem, 13vw, 5rem); margin: 0; text-align: center !important; }
+    .reveal-wrapper { text-align: center !important; }
+    .text-left, .text-right { text-align: center !important; }
+    
     .asymmetric-hero { padding-top: 100px; min-height: auto; padding-bottom: 70px; }
     .hero-bottom-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; margin-top: 40px; }
     .hero-intro-text p { margin: 0 auto 20px; text-align: center; font-size: 1.1rem; }
