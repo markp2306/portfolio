@@ -169,27 +169,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 6. Mobile Menu Toggle
     const mobileToggle = document.querySelector(".mobile-toggle");
-    const mobileClose = document.querySelector(".mobile-close");
     const mobileMenu = document.querySelector(".mobile-menu");
     const mobileLinks = document.querySelectorAll(".mobile-link");
+    const toggleIcon = mobileToggle ? mobileToggle.querySelector("i") : null;
 
     if (mobileToggle && mobileMenu) {
         mobileToggle.addEventListener("click", () => {
-            mobileMenu.classList.add("active");
-            document.body.style.overflow = "hidden"; // Prevent scrolling
-        });
-        
-        if (mobileClose) {
-            mobileClose.addEventListener("click", () => {
-                mobileMenu.classList.remove("active");
+            const isActive = mobileMenu.classList.toggle("active");
+            mobileToggle.classList.toggle("active");
+            
+            if (isActive) {
+                document.body.style.overflow = "hidden";
+                if(toggleIcon) {
+                    toggleIcon.classList.remove("ph-list");
+                    toggleIcon.classList.add("ph-x");
+                }
+            } else {
                 document.body.style.overflow = "";
-            });
-        }
+                if(toggleIcon) {
+                    toggleIcon.classList.remove("ph-x");
+                    toggleIcon.classList.add("ph-list");
+                }
+            }
+        });
 
         mobileLinks.forEach(link => {
             link.addEventListener("click", () => {
                 mobileMenu.classList.remove("active");
+                mobileToggle.classList.remove("active");
                 document.body.style.overflow = "";
+                if(toggleIcon) {
+                    toggleIcon.classList.remove("ph-x");
+                    toggleIcon.classList.add("ph-list");
+                }
             });
         });
     }
