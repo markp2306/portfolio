@@ -1,0 +1,12 @@
+{
+  "name": "mark-patel-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Mark Patel, UI/UX Designer",
+  "main": "index.js",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "scripts": {
+    "start": "serve ."
+  }
+}
