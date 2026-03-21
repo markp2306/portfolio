@@ -246,23 +246,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                // Set CSS variables for spotlight
+                // Set CSS variables for spotlight (Keep this for all)
                 card.style.setProperty('--mouse-x', `${x}px`);
                 card.style.setProperty('--mouse-y', `${y}px`);
 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 25;
-                const rotateY = (centerX - x) / 25;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-                card.style.transition = "transform 0.1s linear";
+                // Only apply 3D tilt if not the contact form
+                if (!card.classList.contains('contact-form-wrap')) {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 25;
+                    const rotateY = (centerX - x) / 25;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                    card.style.transition = "transform 0.1s linear";
+                }
             });
             
             card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
-                card.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
+                if (!card.classList.contains('contact-form-wrap')) {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+                    card.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
+                }
             });
         });
     }
