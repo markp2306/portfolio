@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    to: "markpatel2306@gmail.com",
     subject: `New Portfolio Message from ${name}`,
     text: `You have received a new message from your portfolio contact form:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     replyTo: email,
